@@ -20,16 +20,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const googleProvider = new GoogleAuthProvider();
-  // google signin
-  const handleGoogleSignIn = () => {
-    providerLogin(googleProvider)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-      })
-      .catch((error) => console.log(error));
-  };
+  // sign in with email pass
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -39,7 +30,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+
         form.reset();
         setError("");
         navigate(from, { replace: true });
@@ -49,6 +40,17 @@ const Login = () => {
         setError(error.message);
       });
   };
+  const googleProvider = new GoogleAuthProvider();
+  // google signin
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <>
       <Container className="grid grid-cols-3">

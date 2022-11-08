@@ -23,6 +23,7 @@ export const routes = createBrowserRouter([
             <Services></Services>
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:5000/services"),
       },
     ],
   },
