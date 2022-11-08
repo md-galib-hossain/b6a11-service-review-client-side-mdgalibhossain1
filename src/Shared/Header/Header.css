@@ -1,0 +1,61 @@
+.custom-nav {
+  box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.33);
+  -webkit-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.33);
+}
+.navLink {
+  text-decoration: none;
+  color: #348ac7;
+  font-weight: 600;
+}
+.navLink:hover {
+  color: #7474bf;
+}
+.headerButton {
+  margin-right: 5px;
+}
+.navLogo {
+  text-decoration: none;
+}
+.userName {
+  font-weight: 500;
+  color: #348ac7;
+}
+.custom-box {
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+  position: sticky;
+}
+.btn-custom {
+  text-decoration: none;
+}
+.btn-custom:hover {
+  color: white;
+}
+
+.btn-grad {
+  margin: 10px;
+  padding: 7px 14px;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  border: 1px solid slateblue;
+  text-decoration: none;
+}
+.btn-grad:hover {
+  background-image: linear-gradient(
+    to right,
+    #7474bf 0%,
+    #348ac7 51%,
+    #7474bf 100%
+  );
+  margin: 10px;
+  padding: 7px 14px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
