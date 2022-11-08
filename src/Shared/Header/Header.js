@@ -1,9 +1,17 @@
 import { Button } from "bootstrap";
-import React from "react";
-import { ButtonGroup, Container, Nav, Navbar } from "react-bootstrap";
+import React, { useContext } from "react";
+import { FaUser } from "react-icons/fa";
+import { ButtonGroup, Container, Image, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./Header.css";
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((err) => console.log(err));
+  };
   return (
     <Navbar className="mb-4 custom-box " collapseOnSelect expand="lg">
       <Container>
@@ -22,58 +30,45 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <button className="btn-grad">
-              <Nav.Link>
-                <Link to="/books" className="btn-custom">
-                  All Books
-                </Link>
-              </Nav.Link>
-            </button>
-            <button className="btn-grad">
-              <Nav.Link>
-                <Link to="/blog" className="btn-custom">
-                  Blog
-                </Link>
-              </Nav.Link>
-            </button>
+            <Link to="/books" className="btn-custom">
+              <button className="btn-grad">All Services</button>
+            </Link>
+
+            <Link to="/blog" className="btn-custom">
+              <button className="btn-grad">Blog</button>
+            </Link>
           </Nav>
           <Nav>
-            {/* <Nav.Link>
+            <Nav.Link>
               {user?.uid ? (
-                <>
-                  <Button
-                    onClick={handleLogOut}
-                    className="headerButton"
-                    variant="light"
-                  >
-                    Logout
-                  </Button>
+                <div className="grid grid-cols-2 place-content-center ">
+                  <Link to="" className="btn-custom">
+                    <button onClick={handleLogout} className="btn-grad">
+                      Logout
+                    </button>
+                  </Link>
 
-                  <span className="userName">{user?.displayName}</span>
-                </>
+                  <span className="ms-4 py-3">
+                    <p>{user?.displayName}</p>
+                  </span>
+                </div>
               ) : (
                 <>
-                  <ButtonGroup>
-                    <Link to="/login">
-                      <Button
-                        className="headerButton"
-                        variant="outline-warning"
-                      >
-                        Login
-                      </Button>
+                  <div className="grid grid-cols-2 place-content-center ">
+                    <Link to="/login" className="btn-custom">
+                      <button className="btn-grad">Login</button>
                     </Link>
-                    <Link to="/signup">
-                      <Button className="headerButton" variant="outline-dark">
-                        Signup
-                      </Button>
+                    <Link to="/signup" className="btn-custom">
+                      <button className="btn-grad">Signup</button>
                     </Link>
-                  </ButtonGroup>
+                  </div>
                 </>
               )}
-            </Nav.Link> */}
+            </Nav.Link>
+
             <Nav.Link>
-              {/* {user?.photoURL ? (
-                <a title={user?.displayName}>
+              {user?.photoURL ? (
+                <a title={user.displayName}>
                   <Image
                     style={{ height: "40px" }}
                     roundedCircle
@@ -82,7 +77,7 @@ const Header = () => {
                 </a>
               ) : (
                 <FaUser />
-              )} */}
+              )}
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

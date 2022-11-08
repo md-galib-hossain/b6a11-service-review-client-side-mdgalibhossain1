@@ -7,8 +7,7 @@
 }
 
 .btn2-grad {
-  margin: 10px;
-  padding: 7px 30px;
+  padding: 7px 10px;
   text-align: center;
   text-transform: uppercase;
   color: #348ac7;
@@ -22,8 +21,8 @@
     #348ac7 51%,
     #7474bf 100%
   );
-  margin: 10px;
-  padding: 7px 30px;
+
+  padding: 7px 10px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;

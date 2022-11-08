@@ -1,29 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner/Banner";
 import Servicescard from "./Services/Servicescard";
 import "./Home.css";
 
 const Home = () => {
+  const services = useLoaderData();
   return (
     <div className="container">
       <Banner></Banner>
       <h3>Services</h3>
       <div className="grid grid-cols-2 gap-4 mt-5">
-        <Servicescard></Servicescard>
-        <Servicescard></Servicescard>
-        <Servicescard></Servicescard>
-        <Servicescard></Servicescard>
-        <Servicescard></Servicescard>
-        <Servicescard></Servicescard>
-        <Servicescard></Servicescard>
+        {services.map((service) => (
+          <Servicescard
+            service={service}
+            key={service.serviceid}
+          ></Servicescard>
+        ))}
       </div>
-      <button className="btn2-grad mt-4 mb-5 ">
-        <Link to="/books" className="btn2-custom">
-          See All
-        </Link>
-      </button>
+
+      <Link to="/services" className="btn2-custom">
+        <button className="btn2-grad mt-4 mb-5 ">See All</button>
+      </Link>
+
       <div>
         <h3>About Us</h3>
         <p className="text-lg">
