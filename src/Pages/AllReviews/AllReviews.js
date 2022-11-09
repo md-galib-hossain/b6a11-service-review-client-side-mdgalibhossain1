@@ -1,7 +1,8 @@
 import React from "react";
 
 const AllReviews = ({ allreview }) => {
-  const { _id, serviceid, reviewname, reviewdetails, reviewurl } = allreview;
+  const { _id, serviceid, reviewname, reviewdetails, reviewurl, reviewdate } =
+    allreview;
   return (
     <tr>
       <td>
@@ -17,6 +18,7 @@ const AllReviews = ({ allreview }) => {
         </div>
       </td>
       <td>{reviewdetails}</td>
+      <td>{reviewdate}</td>
     </tr>
   );
 };

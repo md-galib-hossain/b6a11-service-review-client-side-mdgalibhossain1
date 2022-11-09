@@ -5,8 +5,11 @@ import Card from "react-bootstrap/Card";
 import AllReviews from "../../AllReviews/AllReviews";
 import { Form } from "react-bootstrap";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import { data } from "autoprefixer";
+import moment from "moment";
 
 const SingleService = () => {
+  const date = moment().format(" Do MMMM  YYYY,");
   const { user } = useContext(AuthContext);
   const service = useLoaderData();
   const { servicename, serviceurl, servicedetails, serviceprice, serviceid } =
@@ -29,6 +32,8 @@ const SingleService = () => {
       reviewname: user?.displayName,
       reviewdetails: details,
       reviewurl: user?.photoURL,
+      reviewemail: user?.email,
+      reviewdate: date,
     };
     fetch("http://localhost:5000/reviews", {
       method: "POST",
@@ -38,13 +43,19 @@ const SingleService = () => {
       body: JSON.stringify(review),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          alert("Your review added");
+          form.reset();
+        }
+      })
+
       .catch((er) => console.error(er));
   };
 
   return (
     <div>
-      <h1>ha{user?.displayName}ha</h1>
       <Card style={{ width: "68rem" }} className="mx-auto">
         <Card.Img variant="top" src={serviceurl} />
         <Card.Body>
