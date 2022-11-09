@@ -19,9 +19,7 @@ const Banner = () => {
               alt="First slide"
             />
           </div>
-          <Carousel.Caption>
-            <h3>Nature PhotoGraphy</h3>
-          </Carousel.Caption>
+          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -30,9 +28,7 @@ const Banner = () => {
             alt="Second slide"
           />
 
-          <Carousel.Caption>
-            <h3>Mehendi Photography</h3>
-          </Carousel.Caption>
+          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
@@ -41,9 +37,7 @@ const Banner = () => {
             alt="Third slide"
           />
 
-          <Carousel.Caption>
-            <h3>Model Photography</h3>
-          </Carousel.Caption>
+          <Carousel.Caption></Carousel.Caption>
         </Carousel.Item>
       </Carousel>
     </div>

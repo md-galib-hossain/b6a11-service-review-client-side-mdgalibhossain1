@@ -10,8 +10,8 @@ const Home = () => {
   return (
     <div className="container">
       <Banner></Banner>
-      <h3>Services</h3>
-      <div className="grid grid-cols-2 gap-4 mt-5">
+      <h3 className="text-center">Services</h3>
+      <div className="grid lg:grid-cols-2 sm:grid-cols-2 gap-4 mt-5 place-items-center">
         {services.map((service) => (
           <Servicescard
             service={service}
