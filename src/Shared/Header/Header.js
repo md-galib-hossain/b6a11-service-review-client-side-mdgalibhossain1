@@ -1,12 +1,12 @@
-import { Button } from "bootstrap";
 import React, { useContext } from "react";
 import { FaUser } from "react-icons/fa";
-import { ButtonGroup, Container, Image, Nav, Navbar } from "react-bootstrap";
+import { Container, Image, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import "./Header.css";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
   const handleLogout = () => {
     logOut()
       .then(() => {})
