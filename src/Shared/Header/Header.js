@@ -24,7 +24,7 @@ const Header = () => {
               height="50"
               className="d-inline-block align-top"
             />
-            <h2 className="navLink d-inline-block ms-2">Photography Service</h2>
+            <h4 className="navLink d-inline-block ms-2">Photography Service</h4>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -41,20 +41,26 @@ const Header = () => {
           <Nav>
             <Nav.Link>
               {user?.uid ? (
-                <div className="grid grid-cols-2 place-content-center ">
+                <div className="grid grid-cols-4 place-content-center justify-center ">
+                  <Link to="/myreviews" className="btn-custom">
+                    <button className="btn-grad">My reviews</button>
+                  </Link>
+                  <Link to="/addservice" className="btn-custom">
+                    <button className="btn-grad">Add Service</button>
+                  </Link>
                   <Link to="" className="btn-custom">
                     <button onClick={handleLogout} className="btn-grad">
                       Logout
                     </button>
                   </Link>
 
-                  <span className="ms-4 py-3">
+                  <span className="  py-3">
                     <p>{user?.displayName}</p>
                   </span>
                 </div>
               ) : (
                 <>
-                  <div className="grid grid-cols-2 place-content-center ">
+                  <div className="grid grid-cols-2 place-content-center justify-around ">
                     <Link to="/login" className="btn-custom">
                       <button className="btn-grad">Login</button>
                     </Link>
