@@ -21,6 +21,7 @@ const AddService = () => {
       serviceurl: url,
       serviceprice: price,
     };
+    // sending data to server
     fetch("http://localhost:5000/addservice", {
       method: "POST",
       headers: {

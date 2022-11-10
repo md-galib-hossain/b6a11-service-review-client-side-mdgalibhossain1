@@ -38,6 +38,7 @@ const SingleService = () => {
       reviewemail: user?.email,
       reviewdate: date,
     };
+    // sending data to server
     fetch("http://localhost:5000/reviews", {
       method: "POST",
       headers: {
