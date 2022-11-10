@@ -42,7 +42,7 @@ const Header = () => {
             <Nav.Link>
               {user?.uid ? (
                 <div className="grid grid-cols-4 place-content-center justify-center ">
-                  <Link to="/myreviews" className="btn-custom">
+                  <Link to={`/myreviews/${user?.email}`} className="btn-custom">
                     <button className="btn-grad">My reviews</button>
                   </Link>
                   <Link to="/addservice" className="btn-custom">

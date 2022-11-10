@@ -29,6 +29,8 @@ const SingleService = () => {
     const details = form.text.value;
     const review = {
       serviceid: serviceid,
+      serviceurl: serviceurl,
+      servicename: servicename,
       reviewname: user?.displayName,
       reviewdetails: details,
       reviewurl: user?.photoURL,

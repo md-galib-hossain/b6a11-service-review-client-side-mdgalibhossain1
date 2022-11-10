@@ -9,12 +9,13 @@ import Form from "react-bootstrap/Form";
 import { Container } from "react-bootstrap";
 
 const Login = () => {
-  const [error, setError] = useState("");
   const { providerLogin, signIn } = useContext(AuthContext);
-  const navigate = useNavigate();
+
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   // sign in with email pass
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
