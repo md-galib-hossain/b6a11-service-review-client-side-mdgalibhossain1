@@ -6,14 +6,8 @@ import UseTitle from "../../Hooks/UseTitle";
 const EditReview = () => {
   const mysinglereview = useLoaderData();
   const [myreview, setMyreview] = useState(mysinglereview);
-  //   const {} = mysinglereview;
-  //   const [myreview, setMyreview] = useState({});
-  //   useEffect(() => {
-  //     fetch(` https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/editreview/${myallreviews._id}`)
-  //       .then((res) => res.json())
-  //       .then((data) => setMyreview(data));
-  //   }, []);
-  ///
+
+  // Updating review
   const handleSubmit = (event) => {
     UseTitle("Edit Review");
     // Sending data to server

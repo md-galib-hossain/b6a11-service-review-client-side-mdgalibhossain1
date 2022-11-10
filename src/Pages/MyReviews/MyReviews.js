@@ -7,11 +7,14 @@ const MyReviews = () => {
   const myreviews = useLoaderData();
   UseTitle("MyReviews");
   const [displayreview, setDisplayreview] = useState(myreviews);
+
+  // Deleting review
   const handleDelete = (myreview) => {
     const agree = window.confirm(
       `are you confirm to delete: ${myreview.reviewdetails}`
     );
     if (agree) {
+      // sending data to server
       fetch(
         `https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/delete/${myreview._id}`,
         {

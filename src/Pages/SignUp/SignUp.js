@@ -21,6 +21,7 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     UseTitle("SignUp");
+    // Create user
     createUser(email, password)
       .then((result) => {
         const user = result.user;
