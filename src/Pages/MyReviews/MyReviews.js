@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link, useLoaderData } from "react-router-dom";
 
 const MyReviews = () => {
   const myreviews = useLoaderData();
-  console.log(myreviews);
+
+  const [displayreview, setDisplayreview] = useState(myreviews);
+  const handleDelete = (myreview) => {
+    const agree = window.confirm(
+      `are you confirm to delete: ${myreview.reviewdetails}`
+    );
+    if (agree) {
+      fetch(`http://localhost:5000/delete/${myreview._id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            alert("Review deleted");
+            const remainingreview = displayreview.filter(
+              (rvw) => rvw._id != myreview._id
+            );
+            setDisplayreview(remainingreview);
+          }
+        });
+    }
+  };
   return (
     <div>
-      {myreviews[0]?._id ? (
+      {displayreview[0]?._id ? (
         <>
           <h3 className="text-center">My reviews</h3>
           <div className="overflow-x-auto w-full container my-5">
@@ -24,8 +45,8 @@ const MyReviews = () => {
               <tbody>
                 {/* <!-- row 1 --> */}
 
-                {myreviews.map((myreview) => (
-                  <tr>
+                {displayreview.map((myreview) => (
+                  <tr key={myreview._id}>
                     <td>
                       <div className="flex items-center space-x-3">
                         <div className="avatar">
@@ -50,9 +71,13 @@ const MyReviews = () => {
                       <Link to={`/editreview/${myreview._id}`}>
                         <Button variant="outline-success">Edit</Button>
                       </Link>
-                      <Link>
-                        <Button variant="danger">Deleete</Button>
-                      </Link>
+
+                      <Button
+                        onClick={() => handleDelete(myreview)}
+                        variant="danger"
+                      >
+                        Deleete
+                      </Button>
                     </td>
                   </tr>
                 ))}
