@@ -19,7 +19,10 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/services"),
+        loader: () =>
+          fetch(
+            "https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/services"
+          ),
       },
       {
         path: "/services",
@@ -28,7 +31,10 @@ export const routes = createBrowserRouter([
             <Services></Services>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allservices"),
+        loader: () =>
+          fetch(
+            "https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/allservices"
+          ),
       },
       {
         path: "/services/:id",
@@ -38,7 +44,9 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(` http://localhost:5000/services/${params.id}`),
+          fetch(
+            ` https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/blog",
@@ -52,7 +60,9 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(` http://localhost:5000/myreviews/${params.id}`),
+          fetch(
+            ` https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/myreviews/${params.id}`
+          ),
       },
       {
         path: "/editreview/:id",
@@ -62,7 +72,9 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(` http://localhost:5000/singlereview/${params.id}`),
+          fetch(
+            ` https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/singlereview/${params.id}`
+          ),
       },
       {
         path: "/addservice",
@@ -71,7 +83,10 @@ export const routes = createBrowserRouter([
             <AddService></AddService>
           </PrivateRoute>
         ),
-        loader: () => fetch("http://localhost:5000/allservices"),
+        loader: () =>
+          fetch(
+            "https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/allservices"
+          ),
       },
     ],
   },

@@ -12,9 +12,12 @@ const MyReviews = () => {
       `are you confirm to delete: ${myreview.reviewdetails}`
     );
     if (agree) {
-      fetch(`http://localhost:5000/delete/${myreview._id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/delete/${myreview._id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {

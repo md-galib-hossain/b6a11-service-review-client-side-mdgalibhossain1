@@ -9,7 +9,7 @@ const EditReview = () => {
   //   const {} = mysinglereview;
   //   const [myreview, setMyreview] = useState({});
   //   useEffect(() => {
-  //     fetch(` http://localhost:5000/editreview/${myallreviews._id}`)
+  //     fetch(` https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/editreview/${myallreviews._id}`)
   //       .then((res) => res.json())
   //       .then((data) => setMyreview(data));
   //   }, []);
@@ -18,13 +18,16 @@ const EditReview = () => {
     UseTitle("Edit Review");
     // Sending data to server
     event.preventDefault();
-    fetch(`http://localhost:5000/updatereview/${mysinglereview._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(myreview),
-    })
+    fetch(
+      `https://b6a11-service-review-server-side-mdgalibhossain1.vercel.app/updatereview/${mysinglereview._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(myreview),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
