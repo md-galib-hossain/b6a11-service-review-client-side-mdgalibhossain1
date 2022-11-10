@@ -6,6 +6,7 @@ import { FaGoogle } from "react-icons/fa";
 
 import { Container } from "react-bootstrap";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import UseTitle from "../../Hooks/UseTitle";
 
 const SignUp = () => {
   const [error, setError] = useState("");
@@ -19,7 +20,7 @@ const SignUp = () => {
     const name = form.username.value;
     const email = form.email.value;
     const password = form.password.value;
-
+    UseTitle("SignUp");
     createUser(email, password)
       .then((result) => {
         const user = result.user;

@@ -7,6 +7,7 @@ import "./Login.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Container } from "react-bootstrap";
+import UseTitle from "../../Hooks/UseTitle";
 
 const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
@@ -15,7 +16,7 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
   // sign in with email pass
   const [error, setError] = useState("");
-
+  UseTitle("Login");
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -25,7 +26,6 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
 
         form.reset();
         setError("");

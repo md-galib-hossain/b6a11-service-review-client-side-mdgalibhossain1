@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
+import UseTitle from "../../Hooks/UseTitle";
 
 const EditReview = () => {
   const mysinglereview = useLoaderData();
@@ -14,6 +15,7 @@ const EditReview = () => {
   //   }, []);
   ///
   const handleSubmit = (event) => {
+    UseTitle("Edit Review");
     // Sending data to server
     event.preventDefault();
     fetch(`http://localhost:5000/updatereview/${mysinglereview._id}`, {

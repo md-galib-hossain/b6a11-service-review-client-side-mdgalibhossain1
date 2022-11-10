@@ -3,10 +3,11 @@ import { Button, Form } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UseTitle from "../../../Hooks/UseTitle";
 
 const AddService = () => {
   const services = useLoaderData();
-
+  UseTitle("Add Service");
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;

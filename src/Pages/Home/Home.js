@@ -4,9 +4,11 @@ import { Link, useLoaderData } from "react-router-dom";
 import Banner from "./Banner/Banner";
 import Servicescard from "./Services/Servicescard";
 import "./Home.css";
+import UseTitle from "../../Hooks/UseTitle";
 
 const Home = () => {
   const services = useLoaderData();
+  UseTitle("Home");
   return (
     <div className="container">
       <h3 className="text-center">Services</h3>

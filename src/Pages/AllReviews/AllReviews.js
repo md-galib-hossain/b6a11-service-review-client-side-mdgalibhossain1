@@ -1,6 +1,8 @@
 import React from "react";
+import UseTitle from "../../Hooks/UseTitle";
 
 const AllReviews = ({ allreview }) => {
+  UseTitle("All Reviews");
   const { _id, serviceid, reviewname, reviewdetails, reviewurl, reviewdate } =
     allreview;
   return (

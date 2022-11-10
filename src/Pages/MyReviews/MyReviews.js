@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Link, useLoaderData } from "react-router-dom";
+import UseTitle from "../../Hooks/UseTitle";
 
 const MyReviews = () => {
   const myreviews = useLoaderData();
-
+  UseTitle("MyReviews");
   const [displayreview, setDisplayreview] = useState(myreviews);
   const handleDelete = (myreview) => {
     const agree = window.confirm(

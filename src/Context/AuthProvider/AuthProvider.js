@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const providerLogin = (provider) => {
     setLoading(true);
-    signInWithPopup(auth, provider);
+    return signInWithPopup(auth, provider);
   };
   const createUser = (email, password) => {
     setLoading(true);
@@ -28,7 +28,7 @@ const AuthProvider = ({ children }) => {
   };
   const logOut = () => {
     setLoading(true);
-    return signOut(auth);
+    signOut(auth);
   };
 
   useEffect(() => {
@@ -42,9 +42,7 @@ const AuthProvider = ({ children }) => {
   }, []);
   const authInfo = { user, loading, providerLogin, logOut, createUser, signIn };
   return (
-    <div>
-      <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
-    </div>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 
