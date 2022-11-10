@@ -6,6 +6,7 @@ import AddService from "../Pages/Home/Services/AddService";
 import Services from "../Pages/Home/Services/Services";
 import SingleService from "../Pages/Home/Services/SingleService";
 import Login from "../Pages/Login/Login";
+import EditReview from "../Pages/MyReviews/EditReview";
 import MyReviews from "../Pages/MyReviews/MyReviews";
 import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
@@ -48,6 +49,16 @@ export const routes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(` http://localhost:5000/myreviews/${params.id}`),
+      },
+      {
+        path: "/editreview/:id",
+        element: (
+          <PrivateRoute>
+            <EditReview></EditReview>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(` http://localhost:5000/singlereview/${params.id}`),
       },
       {
         path: "/addservice",

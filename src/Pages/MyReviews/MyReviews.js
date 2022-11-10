@@ -1,5 +1,6 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { Link, useLoaderData } from "react-router-dom";
 
 const MyReviews = () => {
   const myreviews = useLoaderData();
@@ -16,6 +17,7 @@ const MyReviews = () => {
                   <th className=""> Service Name</th>
 
                   <th className="">Review</th>
+                  <th></th>
                   <th></th>
                 </tr>
               </thead>
@@ -43,6 +45,15 @@ const MyReviews = () => {
                     </td>
                     <td>{myreview.reviewdetails}</td>
                     <td>{myreview.reviewdate}</td>
+
+                    <td>
+                      <Link to={`/editreview/${myreview._id}`}>
+                        <Button variant="outline-success">Edit</Button>
+                      </Link>
+                      <Link>
+                        <Button variant="danger">Deleete</Button>
+                      </Link>
+                    </td>
                   </tr>
                 ))}
 

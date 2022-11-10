@@ -22,6 +22,7 @@ const SingleService = () => {
       .then((res) => res.json())
       .then((data) => setAllreviews(data));
   }, []);
+
   //
   const handleSubmit = (event) => {
     event.preventDefault();

@@ -10,12 +10,12 @@ import { Container } from "react-bootstrap";
 
 const Login = () => {
   const { providerLogin, signIn } = useContext(AuthContext);
-
   const location = useLocation();
+  const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
   // sign in with email pass
   const [error, setError] = useState("");
-  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -25,6 +25,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        console.log(user);
 
         form.reset();
         setError("");
@@ -41,6 +42,7 @@ const Login = () => {
     providerLogin(googleProvider)
       .then((result) => {
         const user = result.user;
+
         navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
@@ -70,17 +72,12 @@ const Login = () => {
             Dont Have Account? Signup now
           </Link>
           <Form.Text className="text-danger">{error}</Form.Text>
-          <Button
-            variant="outline-primary"
-            type="submit"
-            className="w-full mt-2"
-          >
-            Submit
+          <Button variant="outline-primary" className="w-full mt-2">
+            Login
           </Button>
           <Button
             onClick={handleGoogleSignIn}
             variant="outline-danger"
-            type="submit"
             className="w-full mt-2"
           >
             Login with google

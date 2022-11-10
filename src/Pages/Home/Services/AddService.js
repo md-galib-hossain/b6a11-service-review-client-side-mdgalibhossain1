@@ -75,7 +75,6 @@ const AddService = () => {
           </Form.Group>
 
           <Button
-            //   onClick={handleGoogleSignIn}
             variant="outline-primary"
             type="submit"
             className="w-full mt-2"
