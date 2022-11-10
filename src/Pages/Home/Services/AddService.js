@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddService = () => {
   const services = useLoaderData();
@@ -30,7 +32,7 @@ const AddService = () => {
       .then((data) => {
         console.log(data);
         if (data.acknowledged) {
-          alert("Your service added");
+          toast("You services have been added");
           form.reset();
         }
       })
@@ -83,6 +85,7 @@ const AddService = () => {
           </Button>
         </Form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
